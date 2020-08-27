@@ -1,0 +1,61 @@
+<html>
+  <head>
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+	
+  <body>
+	  
+    <a-scene stats
+			 fog="type: linear;
+				  color: #6495ED;
+				  far: 280;">
+	
+		<a-aseets>
+			<a-asset-item id = "terrain" src = "models/rock/rock-textured/rock.gltf"></a-asset-item>
+			<a-asset-item id = "lighthouse" src = "models/lighthouse/lighthouse.gltf"></a-asset-item>
+		</a-aseets>
+		
+		<a-sky src = "003.jpg" radius = "200"
+			 animation = "property: rotation;
+						  to: 0 360 0;
+						  dur: 400000;">
+		</a-sky>
+		
+		<a-entity id="rig" position="-20 20 0">
+		  	<a-entity id="camera" camera look-controls wasd-controls = "acceleration: 1000"></a-entity>
+		</a-entity>
+	  
+		<a-entity gltf-model = "#terrain"
+				  scale = "0.5 0.5 0.5"
+				  position = "0 0 0">
+		</a-entity>
+		
+		<a-entity gltf-model = "#lighthouse"
+				  position="0 8 0">
+			
+			<a-light light="type:  spot;  color:  yellow;  angle:  35;  intensity:  4"
+					 	animation = "property: rotation;
+						  to: 0 360 0;
+						  dur: 4000;
+						  loop: true;
+						  easing: linear;">
+			</a-light>
+			
+		</a-entity>
+		
+		<a-ocean material = "color : #00BFFF; opacity: 0.5" width="50" depth="5" density="50" speed="5" position="11 1 23" visible="" scale="8.5 85 2.5">
+		</a-ocean>
+		
+			<a-light light="type:  ambient;  color:  white;  angle:  35;  intensity:  0.3"
+					 	animation = "property: rotation;
+						  to: 0 360 0;
+						  dur: 4000;
+						  loop: true;
+						  easing: linear;">
+			</a-light>
+	</a-scene>
+	  
+  </body>
+	
+</html>
